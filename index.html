@@ -38,6 +38,12 @@
   .lightbox.open { display:flex; }
   .lightbox img { max-width:100%; max-height:100%; border-radius:10px; box-shadow:0 20px 60px rgba(0,0,0,.35); }
   .lightbox .close { position:absolute; top:calc(12px + env(safe-area-inset-top,0px)); right:16px; font-size:32px; line-height:1; color:#fff; }
+  .lightbox .nav { position:absolute; top:50%; transform:translateY(-50%); width:46px; height:46px; border-radius:50%; border:1px solid rgba(255,255,255,.4); background:rgba(255,255,255,.15); color:#fff; font-size:26px; line-height:1; cursor:pointer; display:flex; align-items:center; justify-content:center; padding:0 0 3px; }
+  .lightbox .nav:hover { background:rgba(255,255,255,.3); }
+  .lightbox .prev { left:16px; }
+  .lightbox .next { right:16px; }
+  .lightbox .count { position:absolute; bottom:calc(14px + env(safe-area-inset-bottom,0px)); left:50%; transform:translateX(-50%); color:#fff; font-size:13px; letter-spacing:.15em; opacity:.85; }
+  @media (max-width:600px) { .lightbox .nav { width:38px; height:38px; font-size:22px; } .lightbox .prev { left:8px; } .lightbox .next { right:8px; } }
   @media (max-width:600px) { .frame { padding:30px 14px 24px; border-radius:22px; } }
 </style>
 </head>
@@ -58,7 +64,7 @@
   <div class="grid" id="grid"></div>
   </div>
 
-  <div class="lightbox" id="lightbox"><span class="close">×</span><img id="lightbox-img" alt=""></div>
+  <div class="lightbox" id="lightbox"><span class="close">×</span><button class="nav prev" id="lb-prev" aria-label="Précédent">‹</button><img id="lightbox-img" alt=""><button class="nav next" id="lb-next" aria-label="Suivant">›</button><div class="count" id="lb-count"></div></div>
 
 <script>
   const ids = ["0rZYGs497H","BhXlU08HPw","o4GeddeI15","i6s32ciTOA","5hcZtxTdYP","oDt3yijHkJ","IUPHXNOumO","o5dQIDOH0N","Hjf1nm79qh","iinoBfIznF","wJVlkiz0nL","KMPDVHa9QV","QFY0Pn41ld","5dlZNHykcx","eom40wLVEJ","4WgHww35wW","hdKTLAi4O7","uN9RwNcdf7","OgUbyUXTPM","3vz9VR1feW","F2ELpa4ro5","eUiegESA7v","EDqxuxiRAq","xarTKaYQIB","YcRCMdUlEk","GVQFQcOh8g","Me7eWF9WqZ","kLpXMDtp1d","eb6vtCnR1s","k4t3ZWH9c5","usWTVgMdLX","SL1Gha2lcd","oDWly5uc8n","b4sgJdzPd9","gr1KGtsNV2","A84ZsBe7mg","vYy181FHN0","Utr9iwI0vn","QkClQ4SpQh","mpKnYjvP3l","zVioLK4BHZ","HnREjhSUOa","V9tgYr4Hra","2MON2pAWd2","vfW2dVaYSI","TGekbcb375","LrXYXL08NO","8X6viXjPQ2","U66k6CVAgc","4sFTXTpDNB","kZAsY9HF6l","PatmAoC9RQ","082bgKPZA0","6349EbbSS7","EiOxWATdjQ","xpYGmNMwE4","QBdlkDfek3","gt311faJyP","d5WiPZJNOW","ylXu0rlHGy","QmZwxRb3lJ","xHGYQuw0zh","1yACX6ka1u","auisk2yKWR","yhLq0sBorb","9V2zKtvxGR","OdWs9LzLfx","gupIj47RuB","iZlW8XTAgj","VydbPVLiKb","HS6wqPvnPb","Q9iUzHh8ZP","sYebEJsGcm","HoSJtz9NLI","yk7f4GnaVU","9Z0qHQAdbR","zH8FtP57TN","FbP9BrKaJW","euc6BAF49t","F9acUV4CgH","TKhTBrxk0c","sWOlcsWtpo","l3vWXAiVrg","ZEaUeCR8qy","9T8wPaOnpM","zr3y7tMLmI","NQ7JagwdSv","UTNNTWoHC6","VHW38Gk0WO","p7h7CDC2nl","jT4A0vxuHE","xrQXXu1dOE","shomTurUzd","mQj9n5OOrB","EwUK5XeDFB","vMktV0nW0V","leR80UQM3k","Vt3gukHjYB","iIDWCtYoTY","12OmlPZTKc","m2NWyDDUJF","y3RyK29FHX","lVHpp995sj","1fCI8x5TsY","F9yi0bpq5c","csdyAYKBCc","ovfVu8netZ","FPuhLgJpR9","Nk93xHGWDL","XmFu7QQmca","vldss5bm0v","oFF4RxeqOe","rhrbnJ38LI","KOLE6WPUEZ","I5m46HEtqY","xVts3dImEu","WUBk6plfEg","dM5TgL0gKH","b1USlgzalT","FaFsCs3p8r","N3xsHcCo25","LVtaTz3efG","1oLAuCUviO","XxZ8YdALdI","cPiu0wwrMN","gPcRfpoTqC","1YAT1HfIZh","ByyLuH8hIe","tV92EBAuEq","F0vPyT2PP4","RbgWcT32go","TdUQZBgL1h","EvuBY06Thg","6gpsryRm42","vg1KZW0kbw","lJlchmWSV5","XDLvK9Stxt","yNTvZHAkzJ","y3wDd5Lgkw","If8paqay2f","qx8IrRVYkB","RmphJ3DpsH","rTlWCYlxa1","iRQtRKk3o7","lPGneE6uDj","T1jchgyxqo","hXBLpAMvn8","1QUcyYXXGO"];
@@ -99,7 +105,7 @@
         copy(txt, b);
       });
     });
-    card.querySelector("img").addEventListener("click", () => openBox(url, i + 1));
+    card.querySelector("img").addEventListener("click", () => openBox(i));
     grid.appendChild(card);
   }
 
@@ -122,10 +128,42 @@
 
   const box = document.getElementById("lightbox");
   const boxImg = document.getElementById("lightbox-img");
-  function openBox(url, n) { boxImg.src = url; boxImg.alt = "Koo Kyo-hwan GIF " + n; box.classList.add("open"); }
+  const boxCount = document.getElementById("lb-count");
+  let current = 0;
+  const urlOf = i => "https://yourimageshare.com/ib/" + ids[i] + ".gif";
+
+  function show(i) {
+    current = (i + ids.length) % ids.length;
+    boxImg.src = urlOf(current);
+    boxImg.alt = "Koo Kyo-hwan GIF " + (current + 1);
+    boxCount.textContent = (current + 1) + " / " + ids.length;
+    // précharge le GIF suivant
+    new Image().src = urlOf((current + 1) % ids.length);
+  }
+  function openBox(i) { show(i); box.classList.add("open"); }
   function closeBox() { box.classList.remove("open"); boxImg.src = ""; }
-  box.addEventListener("click", e => { if (e.target !== boxImg) closeBox(); });
-  document.addEventListener("keydown", e => { if (e.key === "Escape") closeBox(); });
+  const prev = () => show(current - 1);
+  const next = () => show(current + 1);
+
+  document.getElementById("lb-prev").addEventListener("click", e => { e.stopPropagation(); prev(); });
+  document.getElementById("lb-next").addEventListener("click", e => { e.stopPropagation(); next(); });
+  box.addEventListener("click", e => { if (e.target !== boxImg && !e.target.closest(".nav")) closeBox(); });
+  document.addEventListener("keydown", e => {
+    if (!box.classList.contains("open")) return;
+    if (e.key === "Escape") closeBox();
+    else if (e.key === "ArrowLeft") prev();
+    else if (e.key === "ArrowRight") next();
+  });
+
+  // balayage sur mobile
+  let touchX = null;
+  box.addEventListener("touchstart", e => { touchX = e.touches[0].clientX; }, { passive: true });
+  box.addEventListener("touchend", e => {
+    if (touchX === null) return;
+    const dx = e.changedTouches[0].clientX - touchX;
+    touchX = null;
+    if (Math.abs(dx) > 50) { dx > 0 ? prev() : next(); }
+  });
 </script>
 </body>
 </html>
