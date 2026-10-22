@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Koo Kyo-hwan GIFs</title>
+<style>
+  :root { box-sizing:border-box; padding-top:env(safe-area-inset-top,0px); padding-bottom:env(safe-area-inset-bottom,0px);
+    --ink:#2b2d42; --muted:#8a8fa8; --line:#d9dcec; --glass:rgba(255,255,255,.55); --accent:#7b84e8; }
+  html { scroll-padding-top:env(safe-area-inset-top,0px); }
+  body { margin:0; padding:28px 16px 40px; min-height:100vh; color:var(--ink); text-align:center;
+    font-family:"Helvetica Neue",Helvetica,Arial,sans-serif; position:relative; overflow-x:hidden;
+    background:linear-gradient(135deg,#c3d2fa 0%,#eaf2ff 35%,#f3eef8 65%,#e6d6e8 100%) fixed; }
+  .orb { position:fixed; border-radius:50%; pointer-events:none; z-index:0;
+    background:radial-gradient(circle at 35% 30%,#fff,#eceffa 70%); box-shadow:0 12px 30px rgba(120,130,190,.18); }
+  .orb.a { width:46px; height:46px; left:3%; top:42%; }
+  .frame { position:relative; z-index:1; max-width:1100px; margin:0 auto; padding:44px 28px 36px;
+    background:var(--glass); border:3px solid #fff; border-radius:28px;
+    box-shadow:0 20px 60px rgba(110,120,180,.18); backdrop-filter:blur(14px); -webkit-backdrop-filter:blur(14px); }
+  .label { font-size:11px; letter-spacing:.4em; color:var(--muted); margin:0 0 10px; text-transform:uppercase; }
+  h1 { font-weight:300; font-size:clamp(30px,6vw,52px); letter-spacing:.12em; margin:0 0 18px; }
+  .rule { width:36px; height:1px; background:var(--ink); margin:0 auto 20px; opacity:.6; }
+  .sources { display:flex; flex-wrap:wrap; justify-content:center; gap:8px; margin:0 0 26px; }
+  .sources span { font-size:13px; font-style:italic; letter-spacing:.05em; color:var(--ink); border:1px solid var(--line);
+    background:rgba(255,255,255,.6); border-radius:999px; padding:6px 16px; }
+  .credit { background:rgba(255,255,255,.7); border:1px solid #fff; border-radius:16px; padding:16px 18px; max-width:560px; margin:0 auto 18px;
+    box-shadow:0 8px 24px rgba(110,120,180,.12); font-size:14px; letter-spacing:.04em; }
+  .credit p { margin:6px 0; }
+  .credit strong { color:var(--accent); font-weight:600; }
+  .tip { color:var(--muted); font-size:13px; letter-spacing:.03em; margin:0 0 30px; }
+  .grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(220px,1fr)); gap:15px; text-align:left; }
+  .card { background:rgba(255,255,255,.75); border:1px solid #fff; border-radius:14px; padding:8px;
+    box-shadow:0 6px 18px rgba(110,120,180,.12); transition:transform .2s, box-shadow .2s; }
+  .card:hover { transform:translateY(-3px); box-shadow:0 14px 30px rgba(110,120,180,.22); }
+  .card img { width:100%; border-radius:8px; display:block; min-height:100px; cursor:zoom-in; background:#eef0fa; }
+  .btns { display:flex; gap:6px; margin-top:8px; }
+  .btns button { flex:1; background:#fff; color:var(--ink); border:1px solid var(--line); border-radius:999px; padding:7px 4px; font-size:12px; letter-spacing:.06em; cursor:pointer; transition:background .15s; }
+  .btns button:hover { background:#f1f3fd; }
+  .btns button.ok { background:var(--accent); border-color:var(--accent); color:#fff; }
+  .lightbox { position:fixed; inset:0; background:rgba(40,44,80,.72); backdrop-filter:blur(6px); -webkit-backdrop-filter:blur(6px); display:none; align-items:center; justify-content:center; z-index:100; padding:20px; padding-top:calc(20px + env(safe-area-inset-top,0px)); cursor:zoom-out; }
+  .lightbox.open { display:flex; }
+  .lightbox img { max-width:100%; max-height:100%; border-radius:10px; box-shadow:0 20px 60px rgba(0,0,0,.35); }
+  .lightbox .close { position:absolute; top:calc(12px + env(safe-area-inset-top,0px)); right:16px; font-size:32px; line-height:1; color:#fff; }
+  @media (max-width:600px) { .frame { padding:30px 14px 24px; border-radius:22px; } }
+</style>
+</head>
+<body>
+  <div class="orb a"></div>
+  <div class="frame">
+  <p class="label">GIF collection</p>
+  <h1>Koo Kyo-hwan</h1>
+  <div class="rule"></div>
+  <div class="sources"><span>Escape</span><span>Once We Were Us</span><span>We Are All Trying Here</span></div>
+
+  <div class="credit">
+    <p>GIFs créés par <strong>lightning / horyia</strong></p>
+    <p><strong>Ne pas utiliser ni reprendre sans me créditer.</strong></p>
+  </div>
+
+  <p class="tip">Clique sur un GIF pour l’agrandir. Clic droit → « Copier l’adresse de l’image », ou utilise les boutons ci-dessous.</p>
+
+  <div class="grid" id="grid"></div>
+  </div>
+
+  <div class="lightbox" id="lightbox"><span class="close">×</span><img id="lightbox-img" alt=""></div>
+
+<script>
+  const ids = ["ZEaUeCR8qy","9T8wPaOnpM","zr3y7tMLmI","NQ7JagwdSv","UTNNTWoHC6","VHW38Gk0WO","p7h7CDC2nl","jT4A0vxuHE","xrQXXu1dOE","shomTurUzd","mQj9n5OOrB","EwUK5XeDFB","vMktV0nW0V","leR80UQM3k","Vt3gukHjYB","iIDWCtYoTY","12OmlPZTKc","m2NWyDDUJF","y3RyK29FHX","lVHpp995sj","1fCI8x5TsY","F9yi0bpq5c","csdyAYKBCc","ovfVu8netZ","FPuhLgJpR9","Nk93xHGWDL","XmFu7QQmca","vldss5bm0v","oFF4RxeqOe","rhrbnJ38LI","KOLE6WPUEZ","I5m46HEtqY","xVts3dImEu","WUBk6plfEg","dM5TgL0gKH","b1USlgzalT","FaFsCs3p8r","N3xsHcCo25","LVtaTz3efG","1oLAuCUviO","XxZ8YdALdI","cPiu0wwrMN","gPcRfpoTqC","1YAT1HfIZh","ByyLuH8hIe","tV92EBAuEq","F0vPyT2PP4","RbgWcT32go","TdUQZBgL1h","8X6viXjPQ2","U66k6CVAgc","4sFTXTpDNB","kZAsY9HF6l","PatmAoC9RQ","082bgKPZA0","6349EbbSS7","EiOxWATdjQ","xpYGmNMwE4","QBdlkDfek3","gt311faJyP","d5WiPZJNOW","ylXu0rlHGy","QmZwxRb3lJ","xHGYQuw0zh","1yACX6ka1u","auisk2yKWR","yhLq0sBorb","9V2zKtvxGR","OdWs9LzLfx","gupIj47RuB","iZlW8XTAgj","VydbPVLiKb","HS6wqPvnPb","Q9iUzHh8ZP","sYebEJsGcm","HoSJtz9NLI","yk7f4GnaVU","9Z0qHQAdbR","zH8FtP57TN","FbP9BrKaJW","euc6BAF49t","F9acUV4CgH","TKhTBrxk0c","sWOlcsWtpo","l3vWXAiVrg","0rZYGs497H","BhXlU08HPw","o4GeddeI15","i6s32ciTOA","5hcZtxTdYP","oDt3yijHkJ","IUPHXNOumO","o5dQIDOH0N","Hjf1nm79qh","iinoBfIznF","wJVlkiz0nL","KMPDVHa9QV","QFY0Pn41ld","5dlZNHykcx","eom40wLVEJ","4WgHww35wW","hdKTLAi4O7","uN9RwNcdf7","OgUbyUXTPM","3vz9VR1feW","F2ELpa4ro5","eUiegESA7v","EDqxuxiRAq","xarTKaYQIB","YcRCMdUlEk","GVQFQcOh8g","Me7eWF9WqZ","kLpXMDtp1d","eb6vtCnR1s","k4t3ZWH9c5","usWTVgMdLX","SL1Gha2lcd","oDWly5uc8n","b4sgJdzPd9","gr1KGtsNV2","A84ZsBe7mg","vYy181FHN0","Utr9iwI0vn","QkClQ4SpQh","mpKnYjvP3l","zVioLK4BHZ","HnREjhSUOa","V9tgYr4Hra","2MON2pAWd2","vfW2dVaYSI","TGekbcb375","LrXYXL08NO","EvuBY06Thg","6gpsryRm42","vg1KZW0kbw","lJlchmWSV5","XDLvK9Stxt","yNTvZHAkzJ","y3wDd5Lgkw","If8paqay2f","qx8IrRVYkB","RmphJ3DpsH","rTlWCYlxa1","iRQtRKk3o7","lPGneE6uDj","T1jchgyxqo","hXBLpAMvn8","1QUcyYXXGO"];
+  const grid = document.getElementById("grid");
+
+  function copy(text, btn) {
+    const done = () => {
+      const old = btn.textContent;
+      btn.textContent = "Copié ✓";
+      btn.classList.add("ok");
+      setTimeout(() => { btn.textContent = old; btn.classList.remove("ok"); }, 1500);
+    };
+    const fallback = () => {
+      const t = document.createElement("textarea");
+      t.value = text; document.body.appendChild(t); t.select();
+      try { document.execCommand("copy"); done(); } catch (e) {}
+      t.remove();
+    };
+    if (navigator.clipboard && window.isSecureContext) {
+      navigator.clipboard.writeText(text).then(done, fallback);
+    } else { fallback(); }
+  }
+
+  ids.forEach((id, i) => {
+    const url = "https://yourimageshare.com/ib/" + id + ".gif";
+    const card = document.createElement("div");
+    card.className = "card";
+    card.innerHTML = '<img loading="lazy" src="' + url + '" alt="Koo Kyo-hwan GIF ' + (i + 1) + '">' +
+      '<div class="btns"><button data-t="url">Lien</button><button data-t="bbcode">BBCode</button><button data-t="html">HTML</button></div>';
+    card.querySelectorAll("button").forEach(b => {
+      b.addEventListener("click", () => {
+        const t = b.dataset.t;
+        const txt = t === "url" ? url : t === "bbcode" ? "[img]" + url + "[/img]" : '<img src="' + url + '">';
+        copy(txt, b);
+      });
+    });
+    card.querySelector("img").addEventListener("click", () => openBox(url, i + 1));
+    grid.appendChild(card);
+  });
+
+  const box = document.getElementById("lightbox");
+  const boxImg = document.getElementById("lightbox-img");
+  function openBox(url, n) { boxImg.src = url; boxImg.alt = "Koo Kyo-hwan GIF " + n; box.classList.add("open"); }
+  function closeBox() { box.classList.remove("open"); boxImg.src = ""; }
+  box.addEventListener("click", e => { if (e.target !== boxImg) closeBox(); });
+  document.addEventListener("keydown", e => { if (e.key === "Escape") closeBox(); });
+</script>
+</body>
+</html>
