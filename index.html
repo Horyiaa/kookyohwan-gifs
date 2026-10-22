@@ -11,9 +11,6 @@
   body { margin:0; padding:28px 16px 40px; min-height:100vh; color:var(--ink); text-align:center;
     font-family:"Helvetica Neue",Helvetica,Arial,sans-serif; position:relative; overflow-x:hidden;
     background:linear-gradient(135deg,#c3d2fa 0%,#eaf2ff 35%,#f3eef8 65%,#e6d6e8 100%) fixed; }
-  .orb { position:fixed; border-radius:50%; pointer-events:none; z-index:0;
-    background:radial-gradient(circle at 35% 30%,#fff,#eceffa 70%); box-shadow:0 12px 30px rgba(120,130,190,.18); }
-  .orb.a { width:46px; height:46px; left:3%; top:42%; }
   .frame { position:relative; z-index:1; max-width:1100px; margin:0 auto; padding:44px 28px 36px;
     background:var(--glass); border:3px solid #fff; border-radius:28px;
     box-shadow:0 20px 60px rgba(110,120,180,.18); backdrop-filter:blur(14px); -webkit-backdrop-filter:blur(14px); }
@@ -45,8 +42,7 @@
 </style>
 </head>
 <body>
-  <div class="orb a"></div>
-  <div class="frame">
+    <div class="frame">
   <p class="label">GIF collection</p>
   <h1>Koo Kyo-hwan</h1>
   <div class="rule"></div>
@@ -65,8 +61,12 @@
   <div class="lightbox" id="lightbox"><span class="close">×</span><img id="lightbox-img" alt=""></div>
 
 <script>
-  const ids = ["ZEaUeCR8qy","9T8wPaOnpM","zr3y7tMLmI","NQ7JagwdSv","UTNNTWoHC6","VHW38Gk0WO","p7h7CDC2nl","jT4A0vxuHE","xrQXXu1dOE","shomTurUzd","mQj9n5OOrB","EwUK5XeDFB","vMktV0nW0V","leR80UQM3k","Vt3gukHjYB","iIDWCtYoTY","12OmlPZTKc","m2NWyDDUJF","y3RyK29FHX","lVHpp995sj","1fCI8x5TsY","F9yi0bpq5c","csdyAYKBCc","ovfVu8netZ","FPuhLgJpR9","Nk93xHGWDL","XmFu7QQmca","vldss5bm0v","oFF4RxeqOe","rhrbnJ38LI","KOLE6WPUEZ","I5m46HEtqY","xVts3dImEu","WUBk6plfEg","dM5TgL0gKH","b1USlgzalT","FaFsCs3p8r","N3xsHcCo25","LVtaTz3efG","1oLAuCUviO","XxZ8YdALdI","cPiu0wwrMN","gPcRfpoTqC","1YAT1HfIZh","ByyLuH8hIe","tV92EBAuEq","F0vPyT2PP4","RbgWcT32go","TdUQZBgL1h","8X6viXjPQ2","U66k6CVAgc","4sFTXTpDNB","kZAsY9HF6l","PatmAoC9RQ","082bgKPZA0","6349EbbSS7","EiOxWATdjQ","xpYGmNMwE4","QBdlkDfek3","gt311faJyP","d5WiPZJNOW","ylXu0rlHGy","QmZwxRb3lJ","xHGYQuw0zh","1yACX6ka1u","auisk2yKWR","yhLq0sBorb","9V2zKtvxGR","OdWs9LzLfx","gupIj47RuB","iZlW8XTAgj","VydbPVLiKb","HS6wqPvnPb","Q9iUzHh8ZP","sYebEJsGcm","HoSJtz9NLI","yk7f4GnaVU","9Z0qHQAdbR","zH8FtP57TN","FbP9BrKaJW","euc6BAF49t","F9acUV4CgH","TKhTBrxk0c","sWOlcsWtpo","l3vWXAiVrg","0rZYGs497H","BhXlU08HPw","o4GeddeI15","i6s32ciTOA","5hcZtxTdYP","oDt3yijHkJ","IUPHXNOumO","o5dQIDOH0N","Hjf1nm79qh","iinoBfIznF","wJVlkiz0nL","KMPDVHa9QV","QFY0Pn41ld","5dlZNHykcx","eom40wLVEJ","4WgHww35wW","hdKTLAi4O7","uN9RwNcdf7","OgUbyUXTPM","3vz9VR1feW","F2ELpa4ro5","eUiegESA7v","EDqxuxiRAq","xarTKaYQIB","YcRCMdUlEk","GVQFQcOh8g","Me7eWF9WqZ","kLpXMDtp1d","eb6vtCnR1s","k4t3ZWH9c5","usWTVgMdLX","SL1Gha2lcd","oDWly5uc8n","b4sgJdzPd9","gr1KGtsNV2","A84ZsBe7mg","vYy181FHN0","Utr9iwI0vn","QkClQ4SpQh","mpKnYjvP3l","zVioLK4BHZ","HnREjhSUOa","V9tgYr4Hra","2MON2pAWd2","vfW2dVaYSI","TGekbcb375","LrXYXL08NO","EvuBY06Thg","6gpsryRm42","vg1KZW0kbw","lJlchmWSV5","XDLvK9Stxt","yNTvZHAkzJ","y3wDd5Lgkw","If8paqay2f","qx8IrRVYkB","RmphJ3DpsH","rTlWCYlxa1","iRQtRKk3o7","lPGneE6uDj","T1jchgyxqo","hXBLpAMvn8","1QUcyYXXGO"];
+  const ids = ["0rZYGs497H","BhXlU08HPw","o4GeddeI15","i6s32ciTOA","5hcZtxTdYP","oDt3yijHkJ","IUPHXNOumO","o5dQIDOH0N","Hjf1nm79qh","iinoBfIznF","wJVlkiz0nL","KMPDVHa9QV","QFY0Pn41ld","5dlZNHykcx","eom40wLVEJ","4WgHww35wW","hdKTLAi4O7","uN9RwNcdf7","OgUbyUXTPM","3vz9VR1feW","F2ELpa4ro5","eUiegESA7v","EDqxuxiRAq","xarTKaYQIB","YcRCMdUlEk","GVQFQcOh8g","Me7eWF9WqZ","kLpXMDtp1d","eb6vtCnR1s","k4t3ZWH9c5","usWTVgMdLX","SL1Gha2lcd","oDWly5uc8n","b4sgJdzPd9","gr1KGtsNV2","A84ZsBe7mg","vYy181FHN0","Utr9iwI0vn","QkClQ4SpQh","mpKnYjvP3l","zVioLK4BHZ","HnREjhSUOa","V9tgYr4Hra","2MON2pAWd2","vfW2dVaYSI","TGekbcb375","LrXYXL08NO","8X6viXjPQ2","U66k6CVAgc","4sFTXTpDNB","kZAsY9HF6l","PatmAoC9RQ","082bgKPZA0","6349EbbSS7","EiOxWATdjQ","xpYGmNMwE4","QBdlkDfek3","gt311faJyP","d5WiPZJNOW","ylXu0rlHGy","QmZwxRb3lJ","xHGYQuw0zh","1yACX6ka1u","auisk2yKWR","yhLq0sBorb","9V2zKtvxGR","OdWs9LzLfx","gupIj47RuB","iZlW8XTAgj","VydbPVLiKb","HS6wqPvnPb","Q9iUzHh8ZP","sYebEJsGcm","HoSJtz9NLI","yk7f4GnaVU","9Z0qHQAdbR","zH8FtP57TN","FbP9BrKaJW","euc6BAF49t","F9acUV4CgH","TKhTBrxk0c","sWOlcsWtpo","l3vWXAiVrg","ZEaUeCR8qy","9T8wPaOnpM","zr3y7tMLmI","NQ7JagwdSv","UTNNTWoHC6","VHW38Gk0WO","p7h7CDC2nl","jT4A0vxuHE","xrQXXu1dOE","shomTurUzd","mQj9n5OOrB","EwUK5XeDFB","vMktV0nW0V","leR80UQM3k","Vt3gukHjYB","iIDWCtYoTY","12OmlPZTKc","m2NWyDDUJF","y3RyK29FHX","lVHpp995sj","1fCI8x5TsY","F9yi0bpq5c","csdyAYKBCc","ovfVu8netZ","FPuhLgJpR9","Nk93xHGWDL","XmFu7QQmca","vldss5bm0v","oFF4RxeqOe","rhrbnJ38LI","KOLE6WPUEZ","I5m46HEtqY","xVts3dImEu","WUBk6plfEg","dM5TgL0gKH","b1USlgzalT","FaFsCs3p8r","N3xsHcCo25","LVtaTz3efG","1oLAuCUviO","XxZ8YdALdI","cPiu0wwrMN","gPcRfpoTqC","1YAT1HfIZh","ByyLuH8hIe","tV92EBAuEq","F0vPyT2PP4","RbgWcT32go","TdUQZBgL1h","EvuBY06Thg","6gpsryRm42","vg1KZW0kbw","lJlchmWSV5","XDLvK9Stxt","yNTvZHAkzJ","y3wDd5Lgkw","If8paqay2f","qx8IrRVYkB","RmphJ3DpsH","rTlWCYlxa1","iRQtRKk3o7","lPGneE6uDj","T1jchgyxqo","hXBLpAMvn8","1QUcyYXXGO"];
+  const BATCH = 24;
+  let shown = 0;
   const grid = document.getElementById("grid");
+  const sentinel = document.createElement("div");
+  grid.after(sentinel);
 
   function copy(text, btn) {
     const done = () => {
@@ -86,7 +86,7 @@
     } else { fallback(); }
   }
 
-  ids.forEach((id, i) => {
+  function addCard(id, i) {
     const url = "https://yourimageshare.com/ib/" + id + ".gif";
     const card = document.createElement("div");
     card.className = "card";
@@ -101,7 +101,24 @@
     });
     card.querySelector("img").addEventListener("click", () => openBox(url, i + 1));
     grid.appendChild(card);
-  });
+  }
+
+  function showMore() {
+    const end = Math.min(shown + BATCH, ids.length);
+    for (; shown < end; shown++) addCard(ids[shown], shown);
+    if (shown >= ids.length && observer) observer.disconnect();
+  }
+
+  let observer = null;
+  if ("IntersectionObserver" in window) {
+    observer = new IntersectionObserver(entries => {
+      if (entries.some(e => e.isIntersecting)) showMore();
+    }, { rootMargin: "800px 0px" });
+    showMore();
+    observer.observe(sentinel);
+  } else {
+    while (shown < ids.length) showMore();
+  }
 
   const box = document.getElementById("lightbox");
   const boxImg = document.getElementById("lightbox-img");
